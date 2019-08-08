@@ -1,0 +1,10 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading" class="album-list-container">
+  <div class="album-container" *ngFor="let item of list">
+    <div class="card">
+      <a href="list[item].url"><img src="list[item].thumbnailUrl" /></a>
+      <h2>id: {{list[item].id}}</h2>
+      <span>{{list[item].title}}</span>
+    </div>
+  </div>
+</div>
