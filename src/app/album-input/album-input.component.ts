@@ -20,6 +20,7 @@ export class AlbumInputComponent implements OnInit {
     this.service.getAlbums(this.query.value).subscribe(
       res => {
         this.albums = res;
+        console.log(this.albums);
         this.albumEmitter.emit(this.albums);
       }, 
       e => console.error(e))

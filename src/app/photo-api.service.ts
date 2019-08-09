@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +7,24 @@ import { HttpClient } from '@angular/common/http';
 export class PhotoApiService {
   constructor(
     private http: HttpClient
-  ) { 
+  ) {}
+
+  buildQueryParams(rawQuery:string) {
+    const parsedQuery = rawQuery.split(',');
+    let idParams = new HttpParams()
+    for(let i of parsedQuery){
+      i = i.trim();
+      idParams = idParams.append('albumId', i);
+    }
+    return idParams;
   }
-  getAlbums(query:string = undefined) {
+
+  getAlbums(query:string = '1') {
     let endPoint = 'https://jsonplaceholder.typicode.com/photos';
     if(query) {
-      endPoint = endPoint + `${endPoint}?${query}`
+      return this.http.get(endPoint, { params: this.buildQueryParams(query)});
+    } else {
+      return this.http.get(endPoint);
     }
-    return this.http.get(endPoint);
   }
 }
