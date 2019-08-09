@@ -1,5 +1,5 @@
 <div>
   <h1>Image Album Search</h1>
-  <album-input albums="haveResults()"></album-input>
+  <album-input (albumEmitter)="haveResults($event)"></album-input>
   <album-list list="list"></album-list>
 </div>

@@ -10,7 +10,6 @@ import { PhotoApiService } from '../photo-api.service';
 export class AlbumInputComponent implements OnInit {
   @Output() albumEmitter = new EventEmitter();
   query = new FormControl('');
-  private albums = {};
 
   constructor(public service: PhotoApiService) {}
 
@@ -19,9 +18,7 @@ export class AlbumInputComponent implements OnInit {
   public submitQuery() {
     this.service.getAlbums(this.query.value).subscribe(
       res => {
-        this.albums = res;
-        console.log(this.albums);
-        this.albumEmitter.emit(this.albums);
+        this.albumEmitter.emit(res);
       }, 
       e => console.error(e))
   }
