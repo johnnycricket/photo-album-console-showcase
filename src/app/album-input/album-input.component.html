@@ -1,5 +1,5 @@
 <div class="album-input">
   <input name="query" type="text" [formControl]="query" />
-  <button (click)="submitQuery()">Search</button>
+  <button (click)="submitQuery()"><span *ngIf="!isLoading">Search</span><span *ngIf="isLoading">Loading...</span></button>
 </div>
 <label for="query">Enter a number or mutiple numbers seperated by commas. An empty input defaults to Album 1</label>

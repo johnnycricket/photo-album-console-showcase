@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { PhotoApiService } from '../photo-api.service';
 
@@ -7,18 +7,19 @@ import { PhotoApiService } from '../photo-api.service';
   templateUrl: './album-input.component.html',
   styleUrls: ['./album-input.component.scss']
 })
-export class AlbumInputComponent implements OnInit {
+export class AlbumInputComponent {
   @Output() albumEmitter = new EventEmitter();
   query = new FormControl('');
+  public isLoading = false;
 
   constructor(public service: PhotoApiService) {}
 
-  ngOnInit() {}
-
   public submitQuery() {
+    this.isLoading = true;
     this.service.getAlbums(this.query.value).subscribe(
       res => {
         this.albumEmitter.emit(res);
+        this.isLoading = false;
       }, 
       e => console.error(e))
   }

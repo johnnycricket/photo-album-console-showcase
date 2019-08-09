@@ -1,5 +1,4 @@
-<div *ngIf="isLoading">Loading...</div>
-<div *ngIf="!isLoading" class="album-list-container">
+<div class="album-list-container">
   <div class="card" *ngFor="let item of list">
     <img src="{{item.thumbnailUrl}}"/>
       <div class="card-details">
