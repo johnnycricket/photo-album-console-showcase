@@ -1,0 +1,28 @@
+:host {
+  .album-list-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+      border: solid 1px lightgrey;
+      padding: 7px;
+      margin: 7px;
+      display: flex;
+      width: 360px;
+
+      img {
+        flex: 1;
+        margin-right: 7px;
+      }
+
+      .card-details {
+        flex: 2;
+
+        h2, span {
+          width: auto;
+        }
+      }
+    }
+  }
+  
+}

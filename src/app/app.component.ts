@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'photo-album-console-showcase';
-  public list: [];
+  public list: any = [];
   constructor() {}
 
   haveResults(list) {
-    console.log(list)
     this.list = list;
   }
 }

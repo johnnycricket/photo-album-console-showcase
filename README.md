@@ -1,6 +1,10 @@
 # PhotoAlbumConsoleShowcase
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0. and uses npm for package management.
+
+## Installing
+
+Run `npm install` to install all of the angular dependencies. 
 
 ## Development server
 

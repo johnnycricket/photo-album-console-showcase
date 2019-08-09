@@ -19,12 +19,12 @@ export class PhotoApiService {
     return idParams;
   }
 
-  getAlbums(query:string = '1') {
+  getAlbums(query?:string) {
     let endPoint = 'https://jsonplaceholder.typicode.com/photos';
     if(query) {
       return this.http.get(endPoint, { params: this.buildQueryParams(query)});
     } else {
-      return this.http.get(endPoint);
+      return this.http.get(endPoint, { params: this.buildQueryParams('1')});
     }
   }
 }

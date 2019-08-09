@@ -1,4 +1,5 @@
 <div class="album-input">
-  <input type="text" [formControl]="query" />
+  <input name="query" type="text" [formControl]="query" />
   <button (click)="submitQuery()">Search</button>
 </div>
+<label for="query">Enter a number or mutiple numbers seperated by commas. An empty input defaults to Album 1</label>
